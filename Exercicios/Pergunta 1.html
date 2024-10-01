@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Número na Sequência de Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Verificar Número na Sequência de Fibonacci</h2>
+    <input type="number" id="inputNumber" placeholder="Informe um número" />
+    <br>
+    <button onclick="verificarFibonacci()">Verificar</button>
+    <div class="result" id="resultado"></div>
+</div>
+
+<script>
+    function verificarFibonacci() {
+        const num = parseInt(document.getElementById('inputNumber').value);
+        let a = 0, b = 1;
+        let pertence = false;
+
+        // Calcula a sequência até o número ou próximo a ele
+        while (a <= num) {
+            if (a === num) {
+                pertence = true;
+                break;
+            }
+            let temp = a;
+            a = b;
+            b = temp + b;
+        }
+
+        // Exibe o resultado na página
+        const resultadoDiv = document.getElementById('resultado');
+        if (pertence) {
+            resultadoDiv.textContent = `O número ${num} pertence à sequência de Fibonacci.`;
+            resultadoDiv.style.color = "green";
+        } else {
+            resultadoDiv.textContent = `O número ${num} NÃO pertence à sequência de Fibonacci.`;
+            resultadoDiv.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>

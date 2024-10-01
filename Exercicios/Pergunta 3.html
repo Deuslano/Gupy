@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Soma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Calcular Soma</h2>
+        <button onclick="calcularSoma()">Calcular Soma</button>
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularSoma() {
+            let INDICE = 12;
+            let SOMA = 0;
+            let K = 1;
+
+            while (K < INDICE) {
+                K = K + 1;
+                SOMA = SOMA + K;
+            }
+
+            document.getElementById('resultado').textContent = `O valor da soma é: ${SOMA}`;
+        }
+    </script>
+
+</body>
+</html>
